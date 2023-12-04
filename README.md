@@ -20,8 +20,8 @@ python main.py
 
 Simply enter the path to files as string, for example:
 
-`Eingabe: - /home/user/Bilder/Bildschirmfotos`
+`Eingabe: - /home/user/Bilder`
 
-Enter the format here:
+Change the format here:
 
 `directory_in_str + "/" + new_file[0] + ".webp", "webp"`
