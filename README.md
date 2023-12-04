@@ -20,7 +20,7 @@ python main.py
 
 Simply enter the path to files as string, for example:
 
-`Eingabe: - /home/user/Bilder`
+`Eingabe: /home/user/Bilder`
 
 Change the format here:
 
