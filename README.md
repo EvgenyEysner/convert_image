@@ -25,3 +25,5 @@ Simply enter the path to files as string, for example:
 Change the format here:
 
 `directory_in_str + "/" + new_file[0] + ".webp", "webp"`
+
+If you also need to crop the images, enter "J"
