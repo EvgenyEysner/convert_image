@@ -3,34 +3,40 @@ import os
 
 from PIL import Image
 
-directory_in_str = str(input("Dateipfand eingeben: "))
-to_resize = str(input("Auf bestimmte größe zuschneiden? J/N: ")).lower()
+directory_in_str = input("Dateipfad eingeben: ").strip()
+to_resize = input("Auf bestimmte Größe zuschneiden? J/N: ").strip().lower() == "j"
 
-directory = os.fsencode(directory_in_str)
+# --- Process the directory and ensure that it exists --- #
+if not os.path.isdir(directory_in_str):
+    print(f"Das Verzeichnis '{directory_in_str}' existiert nicht.")
+    exit(1)
 
 
 def resize_image(size, filename):
-    path = directory_in_str + "/" + filename
-    im = Image.open(path)
-    im.thumbnail(size, Image.Resampling.LANCZOS)
-    im.save(path, "JPEG")
+    path = os.path.join(directory_in_str, filename)
+    with Image.open(path) as im:
+        im.thumbnail(size, Image.Resampling.LANCZOS)
+        im.save(path, "JPEG")
+    print(f"Bild '{filename}' auf Größe {size} skaliert.")
 
 
-for file in os.listdir(directory):
-    filename = os.fsdecode(file)
-    filename.lower()
-    if to_resize == "j":
-        size = ast.literal_eval(input("Breite, Höhe in .px: "))
-        resize_image(size, filename)
+for file in os.listdir(directory_in_str):
+    filename = os.fsdecode(file).lower()
 
-    if (
-        filename.endswith(".jpg")
-        or filename.endswith(".png")
-        or filename.endswith(".jpeg")
-    ):
-        path = directory_in_str + "/" + filename
-        new_file = filename.rsplit(".", 1)
+    if filename.endswith((".jpg", ".jpeg", ".png")):
+        path = os.path.join(directory_in_str, filename)
 
-        Image.open(path).convert("RGB").save(
-            directory_in_str + "/" + new_file[0] + ".webp", "webp"
-        )
+        if to_resize:
+            try:
+                size = ast.literal_eval(input("Breite, Höhe in px (z.B. (800, 600)): "))
+                resize_image(size, filename)
+            except (ValueError, SyntaxError):
+                print("Ungültige Eingabe für Größe. Bitte erneut versuchen.")
+                continue
+
+        new_filename = f"{os.path.splitext(filename)[0]}.webp"
+        with Image.open(path) as img:
+            img.convert("RGB").save(
+                os.path.join(directory_in_str, new_filename), "webp"
+            )
+        print(f"Bild '{filename}' in '{new_filename}' konvertiert.")
