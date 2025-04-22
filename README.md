@@ -1,36 +1,54 @@
-# Image Format Converter
+# Image Converter Tool 🔄🖼️
 
-A simple command-line tool to convert and resize images between different formats (WebP, JPG, PNG, GIF).
+[![Python Version](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-## Features
+A user-friendly GUI tool for converting and compressing images between common formats (JPG, PNG, BMP). Built with Python.
 
-- Convert images between multiple formats (WebP, JPG, PNG, GIF)
-- Optional image resizing while maintaining aspect ratio
-- Batch processing of multiple images in a directory
-- Option to delete original files after conversion
-- Preserves image quality with optimized settings
-- Handles transparency conversion for JPEG format
+## Features ✨
 
-## Requirements
+✅ **Format Conversion**  
+Convert images between:
+- PNG ↔ JPG
+- BMP ↔ JPG
+- PNG ↔ BMP
 
-- Python 3.10
-- Pillow (PIL) library
+✅ **Compression Control**  
+Adjust JPG compression quality (1-100) to balance quality and file size
 
-## Installation
+✅ **Simple Interface**  
+Intuitive 3-step workflow:
+1. Select input image
+2. Choose output format
+3. Set compression (for JPG)
 
-1. Clone this repository or download the source code
-2. Create a virtual environment:
+✅ **Automatic Output Management**  
+- Creates output directory if missing
+- Preserves original filename with new extension
+
+## Installation 🛠️
+
+1. Clone the repository:
 ```bash
-python3 -m venv .venv
+git clone https://github.com/EvgenyEysner/convert_image.git
+cd convert_image
 ```
-3. Install the required dependency:
+2. Set up virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# OR
+venv\Scripts\activate  # Windows
+```
+3. Install dependencies:
 ```bash
 pip install pipenv
 pipenv install
 ```
-## Usage
-Run the script using Python:
+## Usage 🚀
+### Run the script using python:
 ```bash
+
 python main.py
 ```
 ### Follow the interactive prompts:
