@@ -1,36 +1,52 @@
-#Image Conversion Script
-This is a small Python script that helps you convert images to the WebP format and optionally resize them.
+# Image Format Converter
 
-This is a small script that helps you to convert your images into a specific format.
+A simple command-line tool to convert and resize images between different formats (WebP, JPG, PNG, GIF).
 
-For Linux users
+## Features
+
+- Convert images between multiple formats (WebP, JPG, PNG, GIF)
+- Optional image resizing while maintaining aspect ratio
+- Batch processing of multiple images in a directory
+- Option to delete original files after conversion
+- Preserves image quality with optimized settings
+- Handles transparency conversion for JPEG format
+
+## Requirements
+
+- Python 3.10
+- Pillow (PIL) library
+
+## Installation
+
+1. Clone this repository or download the source code
+2. Create a virtual environment:
 ```bash
-. .venv/bin/activate
+python3 -m venv .venv
 ```
+3. Install the required dependency:
 ```bash
 pip install pipenv
-```
-
-```bash
 pipenv install
 ```
+## Usage
+Run the script using Python:
 ```bash
-
 python main.py
 ```
-## Usage
-Specify the Image Directory
-When prompted, enter the path to the directory containing your image files as a string, e.g.:
-```shell
-Eingabe: /home/user/Bilder
-```
-###Resize Option
-If you want to resize the images to a specific size, enter "J" when prompted. 
-You will then be asked to enter the dimensions in pixels in the format (width, height), e.g., (800, 600).
+### Follow the interactive prompts:
 
-###Conversion Process
-The script will convert images with .jpg, .jpeg, and .png extensions to WebP format and save them in the same directory. 
-The original file extension is replaced with .webp, so image.jpg becomes image.webp.
+- Enter the directory path containing your images
+- Choose whether to resize images (Y/N)
+- Specify target format (webp/jpg/png/gif)
+- Choose whether to delete original files (Y/N)
+- If resizing, enter dimensions in format: width,height
 
-Now the script provides easier input handling and error-checking, ensuring the specified directory exists and handling 
-image resizing and conversion efficiently.
+### Supported Formats
+- Input: JPG, JPEG, PNG, GIF
+- Output: WebP, JPG, PNG, GIF
+
+### Error Handling
+- Validates input directory existence
+- Checks for supported file formats
+- Provides error messages for failed conversions
+- Validates resize dimensions input
