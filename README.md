@@ -1,11 +1,11 @@
-# Image Converter Tool 🔄🖼️
+# Image Converter Tool
 
 [![Python Version](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A user-friendly GUI tool for converting and compressing images between common formats (JPG, PNG, BMP). Built with Python.
 
-## Features ✨
+## Features
 
 ✅ **Format Conversion**  
 Convert images between:
@@ -26,7 +26,7 @@ Intuitive 3-step workflow:
 - Creates output directory if missing
 - Preserves original filename with new extension
 
-## Installation 🛠️
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -45,7 +45,7 @@ venv\Scripts\activate  # Windows
 pip install pipenv
 pipenv install
 ```
-## Usage 🚀
+## Usage
 ### Run the script using python:
 ```bash
 
